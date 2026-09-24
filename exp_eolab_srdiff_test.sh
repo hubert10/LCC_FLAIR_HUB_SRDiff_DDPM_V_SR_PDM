@@ -19,6 +19,6 @@ export DATA_DIR
 source ~/miniconda3/etc/profile.d/conda.sh
 conda activate /hubert_storage/flair_venv
 which python
-cd $HOME/exp_2026/LCC_FLAIR_HUB_SRDiff_DDPM_V_SR_DPM
-python trainer.py --config_file=./configs/train_main/ --exp_name srdiff_maxvit_ltae_ckpt --hparams="diff_net_ckpt=/hubert_storage/Results/LCC_FLAIR_HUB_SRDiff_DDPM_V_SR_DPM/checkpoints/srdiff_maxvit_ltae_ckpt" --infer
+cd $HOME/exp_2026/LCC_FLAIR_HUB_SRDiff_DDPM_V_SR_PDM
+python trainer.py --config_file=./configs/train_main/ --exp_name srdiff_maxvit_ltae_ckpt --hparams="diff_net_ckpt=/hubert_storage/Results/LCC_FLAIR_HUB_SRDiff_DDPM_V_SR_PDM/checkpoints/srdiff_maxvit_ltae_ckpt" --infer
 

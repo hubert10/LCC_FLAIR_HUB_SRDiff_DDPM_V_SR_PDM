@@ -1,5 +1,5 @@
 paths :   
-    out_folder: "/hubert_storage/Results/LCC_FLAIR_HUB_SRDiff_DDPM_V_SR_DPM/"
+    out_folder: "/hubert_storage/Results/LCC_FLAIR_HUB_SRDiff_DDPM_V_SR_PDM/"
     out_model_name: "seg"
 
     train_csv: /hubert_storage/FLAIR_HUB/ALL_CSV/FLAIR_HUB_TRAIN.csv
@@ -28,7 +28,7 @@ inputs:
     lr_patch_size: 10
     sr_patch_size: 64
     ref_date: '05-15'
-    nbts: 12 # 1: 12 images, 2: 6 images, 3: 4 images, 4: 3 images, 6: 2 images
+    nbts: 3 # 1: 12 images, 2: 6 images, 3: 4 images, 4: 3 images, 6: 2 images
     sr_scale: 6.25 # 6.25 for 20 cm GSD to 1.6 m GSD, 10 for 20 cm GSD to 2 m GSD
 
 hyperparams:

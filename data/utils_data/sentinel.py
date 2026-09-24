@@ -136,8 +136,50 @@ def _compute_semi_monthly_average(
     return np.array(semi_monthly_data), np.array(period_differences)
 
 
+def _compute_nbts_monthly_average(
+    data: np.ndarray, df_dates: pd.DataFrame, ref_datetime: datetime.datetime, nbts: int
+) -> Tuple[np.ndarray, np.ndarray]:
+    """
+    Computes monthly averages and selects one monthly image
+    every `nbts` months.
+
+    Examples:
+
+        nbts=1 -> Jan, Feb, Mar, Apr, May, Jun,
+                  Jul, Aug, Sep, Oct, Nov, Dec
+
+        nbts=2 -> Jan, Mar, May, Jul, Sep, Nov
+
+        nbts=3 -> Jan, Apr, Jul, Oct
+
+        nbts=4 -> Jan, May, Sep
+
+        nbts=6 -> Jan, Jul
+    """
+
+    if nbts not in [1, 2, 3, 4, 6]:
+        raise ValueError("nbts must be one of [1, 2, 3, 4, 6].")
+
+    # First compute the normal monthly averages
+    monthly_data, monthly_offsets = _compute_monthly_average(
+        data, df_dates, ref_datetime
+    )
+
+    # Select every nbts-th monthly observation
+    indices = np.arange(0, monthly_data.shape[0], nbts)
+
+    selected_data = monthly_data[indices]
+    selected_offsets = monthly_offsets[indices]
+
+    return selected_data, selected_offsets
+
+
 def temporal_average(
-    data: np.ndarray, dates: pd.Series, period: str = "monthly", ref_date: str = "01-01"
+    data: np.ndarray,
+    dates: pd.Series,
+    period: str = "monthly",
+    ref_date: str = "01-01",
+    nbts: int = 3,
 ) -> Tuple[np.ndarray, np.ndarray]:
     """
     Computes a temporal average over a time-series using either monthly or semi-monthly grouping.
@@ -161,5 +203,7 @@ def temporal_average(
         return _compute_monthly_average(data, df_dates, ref_datetime)
     elif period == "semi-monthly":
         return _compute_semi_monthly_average(data, df_dates, ref_datetime)
+    elif period == "nbts":
+        return _compute_nbts_monthly_average(data, df_dates, ref_datetime, nbts)
     else:
         raise ValueError("Period must be either 'monthly' or 'semi-monthly'.")

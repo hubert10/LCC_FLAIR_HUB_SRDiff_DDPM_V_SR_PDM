@@ -312,6 +312,7 @@ class FLAIRDataSet(Dataset):
                         "temporal_average_sentinel2"
                     ],
                     ref_date=ref_date,
+                    nbts=self.config["inputs"]["nbts"],
                 )
 
             batch[key] = s2

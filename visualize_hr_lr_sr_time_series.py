@@ -244,8 +244,8 @@ def plot_random_hr_lr_sr(hr_root, lr_root, sr_root):
 
 # root_folder = "D:\\kanyamahanga\\Datasets\\MISR_S2_Aer_LCC_x10_JOINT_SRDiff_SEG_SegFormer_HR_ConvFormer_SR_NIR_OPT_DATA_AUG_LPIPS\\"
 
-root_folder = "D:\\kanyamahanga\\Bigwork\\LCC_FLAIR_HUB_SRDiff_DDPM_V_SR_DPM\\"
-root_folder = "C:\\Users\\kanyamahanga\\Desktop\\IPI-128\\RESEARCH\\Journal_Paper\\LCC_FLAIR_HUB_SRDiff_DDPM_V_SR_DPM\\results\\checkpoints\\misr\\srdiff_maxvit_ltae_ckpt\\results_0_\\"
+root_folder = "D:\\kanyamahanga\\Bigwork\\LCC_FLAIR_HUB_SRDiff_DDPM_V_SR_PDM\\"
+root_folder = "C:\\Users\\kanyamahanga\\Desktop\\IPI-128\\RESEARCH\\Journal_Paper\\LCC_FLAIR_HUB_SRDiff_DDPM_V_SR_PDM\\results\\checkpoints\\misr\\srdiff_maxvit_ltae_ckpt\\results_0_\\"
 
 img_root_folder = "D:\\kanyamahanga\\Datasets\\FLAIR_HUB_TOY\\"
 msk_root_folder = "D:\\kanyamahanga\\Datasets\\FLAIR_HUB_TOY\\"
